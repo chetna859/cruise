@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+
+<header>
+  <h1>Admin Dashboard</h1>
+  <!-- The button inside an <a> tag is not a recommended practice. 
+     For better accessibility and functionality, either use just a button with JavaScript 
+     or style the <a> tag to look like a button -->
+<button id="logoutBtn" onclick="window.location.href='index.html'">Logout</button></header>
+
+<div class="sidebar">
+  <button data-section="recipes">Catering</button>
+  <button data-section="stationery">Stationery</button>
+  <button data-section="salon services">Beauty Salon</button>
+  <button data-section="fitness">Fitness</button>
+   <button data-section="resort Bookings">resort</button>
+  <button data-section="movies">Movies</button>
+  <button data-section="partyhall">Party Hall</button>
+</div>
+
+<div class="main">
+  <div id="contentArea">
+    <h2>Select a section</h2>
+  </div>
+</div>
+
+<script type="module" src="admin-dashboard.js"></script>
+</body>
+</html>

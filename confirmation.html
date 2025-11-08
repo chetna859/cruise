@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Confirmation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f4f4f4;
+    }
+    .confirmation-box {
+      background: white;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    h2 {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="confirmation-box">
+    <h2>✅ Booking Confirmed!</h2>
+    <p><strong>Movie:</strong> <span id="movie"></span></p>
+    <p><strong>Date:</strong> <span id="date"></span></p>
+    <p><strong>Time:</strong> <span id="time"></span></p>
+    <p><strong>Seats:</strong> <span id="seats"></span></p>
+    
+  </div>
+<a href="resort and movie.html" style="font-weight:1000PX; font-size: 18px; margin-left: 45%; text-decoration: none;">←BACK</a>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("movie").textContent = params.get("movie");
+    document.getElementById("date").textContent = params.get("date");
+    document.getElementById("time").textContent = params.get("time");
+    document.getElementById("seats").textContent = params.get("seats");
+  </script>
+</body>
+ 
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Head-Cook Dashboard</title>
+  <style>
+    body { font-family: Arial; background: #f9f9f9; padding: 20px; }
+    h2 { text-align: center; }
+    #cateringOrdersContainer { display: flex; flex-direction: column; gap: 15px; margin-top: 20px;text-align: center; }
+    .order-card { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1);background-color: #209ab0;}
+    button{background: #209ab0;
+    color: #131212;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#logoutBtn:hover {
+    background: hsl(184, 86%, 51%);
+}
+  </style>
+</head>
+<body>
+  <a href="index.html"><button id="logout">Logout</button></a>
+  <h2>All Catering Orders</h2>
+  <div id="cateringOrdersContainer">Loading...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBjSrZdrjl5KupKgL28AuPoDSQkgwcFGFs",
+      authDomain: "cruise-ed24d.firebaseapp.com",
+      databaseURL: "https://cruise-ed24d-default-rtdb.firebaseio.com",
+      projectId: "cruise-ed24d",
+      storageBucket: "cruise-ed24d.appspot.com",
+      messagingSenderId: "430536291894",
+      appId: "1:430536291894:web:9f3d2482d5ce933ca70a97",
+      measurementId: "G-EJQPKYB2S2"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const auth = getAuth(app);
+    const cateringOrdersContainer = document.getElementById("cateringOrdersContainer");
+
+    // Only allow Head-Cook
+    onAuthStateChanged(auth, (user) => {
+      if (user && user.email === "jiyanshdave123@gmail.com") { // Change to Head-Cook email
+        loadCateringOrders();
+      } else {
+        // Not authorized
+        alert("You are not authorized!");
+        window.location.href = "headcook-login.html";
+      }
+    });
+
+    function loadCateringOrders() {
+      const ordersRef = ref(db, "cateringOrders");
+      onValue(ordersRef, (snapshot) => {
+        cateringOrdersContainer.innerHTML = "";
+        if (!snapshot.exists()) {
+          cateringOrdersContainer.innerHTML = "<p>No orders yet.</p>";
+          return;
+        }
+        snapshot.forEach((child) => {
+          const order = child.val();
+          const div = document.createElement("div");
+          div.className = "order-card";
+          div.innerHTML = `
+            <p><strong>Customer:</strong> ${order.name}</p>
+            <p><strong>Phone:</strong> ${order.phone}</p>
+            <p><strong>Items:</strong> ${order.items.map(i => i.name + " (₹" + i.price + ")").join(", ")}</p>
+            <p><strong>Total:</strong> ₹${order.totalPrice}</p>
+            <p><strong>Date:</strong> ${order.date}</p>
+            <p><strong>Time:</strong> ${order.time}</p>
+          `;
+          cateringOrdersContainer.appendChild(div);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

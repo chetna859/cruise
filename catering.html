@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catering Menu</title>
+  <link rel="stylesheet" href="catering.css">
+</head>
+<body>
+  
+  <div class="menu-container">
+  <div id="hamburger" class="hamburger"   style="color:white;">☰</div>
+  <ul id="menu" class="menu-dropdown">
+    <li><a href="cart.html" style="left: 90%; top: 60px; color: white;">🛒 My Cart</a></li>
+    <li><a href="orders.html" style="left: 90%; top: 80px; color: white;">📦 My Orders</a></li>
+    <li><a href="index.html" style="cursor: pointer;"><button id="logoutBtn" >Logout</button></a></li>
+  </ul>
+</div>
+  <a href="service.html" style="top: 60px; cursor: pointer;">← Back to service page</a>
+  
+  <h1>Catering Menu</h1>
+  <!-- Popup Message -->
+<div id="popup" class="popup">Item added to cart!</div>
+
+
+  <!-- Search bar -->
+  <input type="text" id="searchBox" placeholder="Search for dishes...">
+
+  <!-- Menu container -->
+  <div id="menu-container" class="menu-grid"></div>
+
+ <button id="placeOrderBtn"></button>
+<script type="module" src="catering.js"></script>
+ 
+</div>
+
+</body>
+</html>

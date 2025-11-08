@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beauty Salon</title>
+  <link rel="stylesheet" href="beauty.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  
+  <div class="intro-section"></div>
+  
+  <header class="about">
+    <a href="index.html"><button id="logoutBtn"  style="background: hsl(318, 56%, 55%); /* gradient color */
+  color: white;
+  border: none;
+  padding: 6px 8px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  margin-right: 100%;
+  text-decoration: none;">Logout</button></a>
+    <br>
+    
+     <a href="service.html" style="background: hsl(318, 56%, 55%); /* gradient color */
+  color: white;
+  border: none;
+  padding: 4px 6px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  margin-right: 100%;
+  text-decoration: none;">←Back</a>
+    <h2>About Us</h2>
+    <p>We are a full-service beauty salon offering top-quality hair, skin, and nail services in a relaxing environment. Our mission is to enhance your natural beauty and confidence.</p>
+    </header>
+
+     <section class="hero">
+         <h1>GlowUp Beauty Salon</h1>
+         <a href="#services" class="btn">View Services</a>
+    <p>Where beauty meets confidence</p><br>
+    <br>
+    
+   </section>
+
+  <section id="services">
+    <a href="beauty.html"><button id="logoutBtn" style="background: hsl(318, 56%, 55%); /* gradient color */
+  color: #252121;
+  border: none;
+  padding: 10px 19px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  margin-right: 100%;
+  
+  text-decoration: none;" >up</button></a>
+  <h2>Our Services</h2>
+  <div class="service-container"></div>
+  </section>
+
+  
+
+
+  <section class="contact">
+    <div id="bookingModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="booking-close">&times;</span>
+    <h2>Book an Appointment</h2>
+    <form id="bookingForm">
+         <p id="selectedService"></p>
+      
+      <input type="text" id="service" readonly hidden>
+      <input type="text" id="price" hidden readonly >
+      <input type="date" id="date" required>
+      <input type="time" id="time" required>
+      <button type="submit" class="btn">Book Now</button>
+    </form>
+    <p id="successMsg" style="color:green;"></p>
+  </section>
+
+  <!-- Booking Confirmation Modal -->
+<!-- Confirmation Modal -->
+<div id="confirmationModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn confirm-close">&times;</span>
+    <h2>Booking Confirmed!</h2>
+    <p><strong>Name:</strong> <span id="confirmName"></span></p>
+    <p><strong>Phone:</strong> <span id="confirmPhone"></span></p>
+    <p><strong>Service:</strong> <span id="confirmService"></span></p>
+    <p><strong>Price:</strong> <span id="confirmPrice"></span></p>
+    <p><strong>Date:</strong> <span id="confirmDate"></span></p>
+    <p><strong>Time:</strong> <span id="confirmTime"></span></p>
+    </div>
+ 
+</div>
+  <div id="beautyContainer"></div>
+
+  <script type="module" src="beauty.js"></script>
+</body>
+</html>

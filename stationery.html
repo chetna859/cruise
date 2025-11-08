@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stationery Booking</title>
+    <link rel="stylesheet" href="stationery.css">
+</head>
+<body>
+    <div class="menu-container">
+  <div id="hamburger" class="hamburger"   style="color:white;">☰</div>
+  <ul id="menu" class="menu-dropdown">
+    <li><a href="cart1.html" style="left: 90%; top: 60px; color: white;">🛒 My Cart</a></li>
+    <li><a href="orders1.html" style="left: 90%; top: 80px; color: white;">📦 My Orders</a></li>
+    <li><a href="index.html" style="cursor: pointer;"><button id="logoutBtn" >Logout</button></a></li>
+  </ul>
+</div>
+  <a href="service.html" style="top: 60px; cursor: pointer;">← Back to service page</a>
+    <header>
+        <h1>Stationery Items</h1>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search items...">
+        </div>
+    </header>
+
+    <main>
+        <!-- Item List -->
+        <h2>Available Items</h2>
+        <ul id="itemList"></ul>
+
+    </main>
+
+    <!-- Firebase App + JS -->
+    <script type="module" src="stationery.js"></script>
+</body>
+</html>

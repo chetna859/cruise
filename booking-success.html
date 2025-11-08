@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Success</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f4f8fb;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: inline-block;
+      min-width: 300px;
+    }
+    h1 {
+      color: #2e7d32;
+    }
+    p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #2e7d32;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎉 Booking Successful!</h1>
+    <p id="name"></p>
+    <p id="email"></p>
+    <p id="phone"></p>
+    <p id="room"></p>
+    <a href="resort.html" class="btn">Go Home</a>
+  </div>
+
+  <!-- Firebase -->
+  <script type="module">
+    // Import Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyBjSrZdrjl5KupKgL28AuPoDSQkgwcFGFs",
+      authDomain: "cruise-ed24d.firebaseapp.com",
+      databaseURL: "https://cruise-ed24d-default-rtdb.firebaseio.com",
+      projectId: "cruise-ed24d",
+      storageBucket: "cruise-ed24d.appspot.com",
+      messagingSenderId: "430536291894",
+      appId: "1:430536291894:web:9f3d2482d5ce933ca70a97",
+      measurementId: "G-EJQPKYB2S2"
+    };
+
+    // Init
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    // Fetch voyager details after login
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const snapshot = await get(ref(db, "voyagers/" + user.uid));
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          document.getElementById("name").textContent = "👤 Name: " + data.name;
+          document.getElementById("email").textContent = "📧 Email: " + data.email;
+          document.getElementById("phone").textContent = "📞 Phone: " + data.phone;
+          document.getElementById("room").textContent = "🚢 Room: " + data.room;
+        }
+      } else {
+        // If not logged in, redirect to login
+        window.location.href = "resort.html";
+      }
+    });
+  </script>
+</body>
+</html>

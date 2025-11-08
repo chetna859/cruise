@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Cart - Stationery</title>
+  <link rel="stylesheet" href="stationery.css">
+</head>
+<body>
+     <a href="stationery.html" style="top: 60px; cursor: pointer;">← Back to stationery</a>
+  <h1>🛒 My Cart</h1>
+
+  <ul id="cartList"></ul>
+  <h3 id="totalPrice">Total: ₹0</h3>
+
+  <button id="placeOrderBtn">Place Order</button>
+  
+
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="modal" style="display:none; color:black;">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 style="color: #0b5882;">Order Confirmed 🎉</h2>
+      <p>Name: <span id="confirmName"></span></p>
+      <p>Phone: <span id="confirmPhone"></span></p>
+      <p>room: <span id="confirmRoom"></span></p>
+      <p>Date: <span id="confirmDate"></span></p>
+      <p>Time: <span id="confirmTime"></span></p>
+      <p>Total: <span id="confirmTotal"></span></p>
+    </div>
+    <!-- Confirmation Popup -->
+<div id="confirmationPopup" class="popup">
+  <div class="popup-content">
+    <span id="closePopup" class="close">&times;</span>
+    <h2>✅ Order Placed Successfully!</h2>
+    <p id="orderDetails"></p>
+  </div>
+</div>
+  
+
+  <script type="module" src="cart1.js"></script>
+</body>
+</html>

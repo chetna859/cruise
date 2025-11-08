@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: hsl(0, 57%, 28%);
+    }
+    .login-box {
+      background: hwb(290 48% 50%);
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #555;
+    }
+    p {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-box">
+  <h2>Admin Login</h2>
+  <form id="loginForm">
+    <input type="email" id="email" placeholder="Admin Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+  <p id="errorMsg"></p>
+</div>
+
+
+  
+ <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
+
+  // Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyBjSrZdrjl5KupKgL28AuPoDSQkgwcFGFs",
+    authDomain: "cruise-ed24d.firebaseapp.com",
+    databaseURL: "https://cruise-ed24d-default-rtdb.firebaseio.com",
+    projectId: "cruise-ed24d",
+    storageBucket: "cruise-ed24d.appspot.com",
+    messagingSenderId: "430536291894",
+    appId: "1:430536291894:web:9f3d2482d5ce933ca70a97"
+  };
+
+  // Init Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getDatabase(app);
+
+  const loginForm = document.getElementById('loginForm');
+  const errorMsg = document.getElementById('errorMsg');
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    try {
+      // Sign in user
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const uid = userCredential.user.uid;
+
+      console.log("UID from Auth:", uid);
+
+      // Check admin role by UID only
+      const adminRef = ref(db, `admins/${uid}`);
+      const snapshot = await get(adminRef);
+
+      console.log("Admin UID value:", snapshot.val());
+
+      if (snapshot.exists() && String(snapshot.val()).toLowerCase() === "true") {
+        sessionStorage.setItem("isAdmin", "true");
+        window.location.href = "admin-dashboard.html";
+      } else {
+        errorMsg.textContent = "Access denied: You are not an admin.";
+      }
+
+    } catch (err) {
+      console.error(err);
+      errorMsg.textContent = "Login failed: " + err.message;
+    }
+  });
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+ body {
+  background: #1b2735;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: #2a3f57;
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-top: 10px;
+  display: block;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  background: #e50914;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #b00610;
+}
+
+#confirmation {
+  padding: 10px;
+  background: #28a745;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none;
+}
+.seat-layout {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.seat {
+  width: 35px;
+  height: 35px;
+  background-color: #ddd;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 35px;
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+  user-select: none;
+  transition: 0.3s ease;
+}
+
+.seat:hover {
+  background-color: #aaa;
+}
+
+.seat.selected {
+  background-color: #e50914;
+  color: white;
+}
+
+.seat.booked {
+  background-color: #444;
+  color: #fff;
+  cursor: not-allowed;
+}

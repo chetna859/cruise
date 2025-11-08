@@ -1,0 +1,80 @@
+/* Reset default margin & padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body setup */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  height: 100vh;
+  display: grid;
+  place-items: center; /* centers the container vertically and horizontally */
+}
+
+/* Login container using grid */
+.login-container {
+  background: #fff;
+  padding: 40px 35px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: grid;
+  grid-template-rows: auto auto auto auto; /* heading, email, password, button */
+  gap: 15px; /* consistent vertical spacing */
+  width: 350px;
+  max-width: 90%;
+}
+
+/* Heading */
+.login-container h1 {
+  color: #333;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Input fields */
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.login-container input[type="email"]:focus,
+.login-container input[type="password"]:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 8px rgba(37,117,252,0.4);
+  outline: none;
+}
+
+/* Login button */
+#loginBtn {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #2575fc;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#loginBtn:hover {
+  background: #1a5ed8;
+  transform: translateY(-2px);
+}
+
+/* Responsive for small screens */
+@media screen and (max-width: 400px) {
+  .login-container {
+    width: 90%;
+    padding: 35px 20px;
+  }
+}

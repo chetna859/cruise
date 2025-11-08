@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Fitness Booking Confirmation</title>
+  <link rel="stylesheet" href="fit-confirmation.css">
+</head>
+<body>
+  <div class="container">
+    <h1>✅ Booking Confirmed</h1>
+    <p>Thank you! Your fitness booking has been confirmed.</p>
+
+    <div class="booking-summary">
+      <h2>Booking Summary</h2>
+      <p><strong>Service:</strong> <span id="serviceName"></span></p>
+      <p><strong>Trainer:</strong> <span id="trainer"></span></p>
+      <p><strong>Time:</strong> <span id="time"></span></p>
+      <p><strong>Date:</strong> <span id="date"></span></p>
+      <p><strong>Price:</strong> ₹<span id="price"></span></p>
+    </div>
+
+    <a href="fitness.html" class="btn">Book Another Service</a>
+  </div>
+
+  <script>
+    // Get booking details from URL
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("serviceName").textContent = params.get("name");
+    document.getElementById("trainer").textContent = params.get("trainer");
+    document.getElementById("time").textContent = params.get("time");
+    document.getElementById("date").textContent = params.get("date");
+    document.getElementById("price").textContent = params.get("price");
+  </script>
+</body>
+</html>

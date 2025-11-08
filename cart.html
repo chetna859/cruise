@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cart</title>
+  <link rel="stylesheet" href="catering.css">
+</head>
+<body>
+  <div class="menu-container">
+    <a href="catering.html" style="top: 60px; cursor: pointer;">← Back to Catering</a>
+  </div>
+
+  <h1>🛒 My Cart</h1>
+
+  <!-- Cart Items -->
+  <div id="cart-container" class="cart-list"></div>
+  <h2 id="total-price"></h2>
+
+  <!-- Place Order -->
+  <button id="placeOrderBtn">Place Order</button>
+  
+
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 style="color: violet;">Order Placed Successfully!</h2>
+      <p><strong>Name:</strong> <span id="confirmName"></span></p>
+      <p><strong>Phone:</strong> <span id="confirmPhone"></span></p>
+      <p><strong>Total:</strong> ₹<span id="confirmTotal"></span></p>
+      <p>Thank you for your order! 🎉</p>
+    </div>
+  </div>
+
+
+  <script type="module" src="cart.js"></script>
+</body>
+</html>

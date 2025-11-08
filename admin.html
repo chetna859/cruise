@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- LOGIN SECTION -->
+    <section id="loginSection">
+        <h2>Admin Login</h2>
+        <input type="email" id="adminEmail" placeholder="Admin Email">
+        <input type="password" id="adminPassword" placeholder="Password">
+        <button id="loginBtn">Login</button>
+        <p id="loginMessage" style="color:red;"></p>
+    </section>
+
+    <!-- ADMIN SECTION -->
+    <section id="adminSection" style="display:none;">
+        <h1>Admin Panel</h1>
+        <button id="logoutBtn">Logout</button>
+
+        <div id="servicePanels">
+
+            <!-- Catering -->
+            <div class="service">
+                <h3>Catering</h3>
+                <table border="1">
+                    <thead><tr><th>Name</th><th>Price</th><th>Action</th></tr></thead>
+                    <tbody id="cateringTable"></tbody>
+                </table>
+                <input type="text" id="cateringName" placeholder="Name">
+                <input type="number" id="cateringPrice" placeholder="Price">
+                <button id="addCateringBtn">Add</button>
+            </div>
+
+            <!-- Stationary -->
+            <div class="service">
+                <h3>Stationary</h3>
+                <table border="1">
+                    <thead><tr><th>Name</th><th>Price</th><th>Action</th></tr></thead>
+                    <tbody id="stationaryTable"></tbody>
+                </table>
+                <input type="text" id="stationaryName" placeholder="Name">
+                <input type="number" id="stationaryPrice" placeholder="Price">
+                <button id="addStationaryBtn">Add</button>
+            </div>
+
+            <!-- Resort -->
+            <div class="service">
+                <h3>Resort</h3>
+                <table border="1">
+                    <thead><tr><th>Name</th><th>Price</th><th>Action</th></tr></thead>
+                    <tbody id="resortTable"></tbody>
+                </table>
+                <input type="text" id="resortName" placeholder="Name">
+                <input type="number" id="resortPrice" placeholder="Price">
+                <button id="addResortBtn">Add</button>
+            </div>
+
+            <!-- Movie Booking -->
+            <div class="service">
+                <h3>Movie Booking</h3>
+                <table border="1">
+                    <thead><tr><th>Movie</th><th>Price</th><th>Action</th></tr></thead>
+                    <tbody id="movieTable"></tbody>
+                </table>
+                <input type="text" id="movieName" placeholder="Movie Name">
+                <input type="number" id="moviePrice" placeholder="Price">
+                <button id="addMovieBtn">Add</button>
+            </div>
+
+            <!-- Beauty -->
+            <div class="service">
+                <h3>Beauty Salon</h3>
+                <table border="1">
+                    <thead><tr><th>Service</th><th>Price</th><th>Action</th></tr></thead>
+                    <tbody id="beautyTable"></tbody>
+                </table>
+                <input type="text" id="beautyName" placeholder="Service Name">
+                <input type="number" id="beautyPrice" placeholder="Price">
+                <button id="addBeautyBtn">Add</button>
+            </div>
+
+            <!-- Fitness -->
+            <div class="service">
+                <h3>Fitness</h3>
+                <table border="1">
+                    <thead><tr><th>Service</th><th>Price</th><th>Action</th></tr></thead>
+                    <tbody id="fitnessTable"></tbody>
+                </table>
+                <input type="text" id="fitnessName" placeholder="Service Name">
+                <input type="number" id="fitnessPrice" placeholder="Price">
+                <button id="addFitnessBtn">Add</button>
+            </div>
+
+            <!-- Party Hall -->
+            <div class="service">
+                <h3>Party Hall</h3>
+                <table border="1">
+                    <thead><tr><th>Hall Name</th><th>Price</th><th>Action</th></tr></thead>
+                    <tbody id="partyTable"></tbody>
+                </table>
+                <input type="text" id="partyName" placeholder="Hall Name">
+                <input type="number" id="partyPrice" placeholder="Price">
+                <button id="addPartyBtn">Add</button>
+            </div>
+
+        </div>
+    </section>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

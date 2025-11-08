@@ -1,0 +1,12 @@
+body{
+    align-items: center;
+    text-align: center;
+}
+img{
+    height: 200px;
+    
+}
+#services{
+    card{
+    gap:5px;
+}}

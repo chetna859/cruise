@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Booking</title>
+  <link rel="stylesheet" href="movie booking.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Book Your Seat</h1>
+
+    <form id="bookingForm">
+      <p id="movieDisplay"></p>
+      <input type="hidden" id="movie" required>
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" required>
+
+      <label for="time">Time:</label>
+      <select id="time" required>
+        <option value="">Select a Time</option>
+        <option value="10:00 AM">10:00 AM</option>
+        <option value="1:00 PM">1:00 PM</option>
+        <option value="4:00 PM">4:00 PM</option>
+        <option value="7:00 PM">7:00 PM</option>
+      </select>
+
+      <label>Select Seat:</label>
+<div class="seat-layout" id="seatLayout"></div>
+<input type="hidden" id="seat" required>
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+
+    <div id="confirmation" class="hidden"></div>
+  </div>
+
+  <script type="module" src="movie booking.js"></script>
+</body>
+</html>

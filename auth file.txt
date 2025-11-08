@@ -1,0 +1,94 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": false,
+
+    "admins": {
+      "$uid": {
+         ".read": true,
+        ".write": true,
+      }
+    },
+      "supervisor": {
+      "$uid": {
+         ".read": true,
+        ".write": true,
+      }
+    },
+      "bookings": {
+      ".read": true,
+      ".write": true,
+    },
+      "voyagers": {
+        "$uid":{
+      ".read": true,
+      ".write": true,
+        }
+    },
+      "manager": {
+        "$uid": {
+             ".read": true,
+            ".write": true,
+        }
+  },
+    "cateringOrders": {
+      ".read": true,
+      ".write": true,
+    
+  },
+    "stationeryOrders": {
+      ".read": true,
+      ".write": true,
+    
+  },
+      "head cook": {
+        "$uid": {
+             ".read": true,
+            ".write": true,
+        }
+  },
+
+    "adminData": {
+      ".read": "auth != null && root.child('admins').child(auth.uid).val() === true",
+      ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+    },
+
+    "stationery": {
+      ".read": true,
+      ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+    },
+
+    "recipes": {
+      ".read": true,
+      ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+    },
+
+    "resort Bookings": {
+      ".read": true,
+      ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+    },
+
+    "movies": {
+      ".read": true,
+      ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+    },
+
+    "salon_services": {
+      ".read": true,
+      ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+    },
+
+    "fitness": {
+      ".read": true,
+      ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+    },
+
+    "partyhall": {
+      ".read": true,
+      ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+    }
+  }
+}
+
+  
+
